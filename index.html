@@ -36,7 +36,7 @@
   .slide{
     position:absolute;
     inset:0;
-    padding:52px 68px 68px;
+    padding:52px 100px 68px 68px;
     background:var(--card);
     display:none;
     flex-direction:column;
@@ -330,19 +330,23 @@
     margin-right:12px;
   }
 
+  /* 翻页导航：桌面端停靠右侧中部，避开页面正文和页脚 */
   .nav{
     position:fixed;
-    bottom:22px;
-    left:50%;
-    transform:translateX(-50%);
+    top:50%;
+    right:16px;
+    bottom:auto;
+    left:auto;
+    transform:translateY(-50%);
     display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:14px;
-    background:rgba(255,255,255,.92);
+    gap:8px;
+    background:rgba(255,255,255,.94);
     backdrop-filter:blur(10px);
     border:1px solid var(--line);
-    border-radius:40px;
-    padding:8px 18px;
+    border-radius:30px;
+    padding:10px 8px;
     box-shadow:0 4px 20px rgba(15,59,94,.12);
     z-index:100;
   }
@@ -452,7 +456,7 @@
   }
 
   @media (max-width:1100px){
-    .slide{padding:38px 40px 58px;}
+    .slide{padding:38px 86px 58px 40px;}
     .slide-head h2{font-size:24px;}
     .grid-3,.grid-4{grid-template-columns:1fr 1fr;}
     .toc-grid{grid-template-columns:1fr 1fr;}
@@ -461,7 +465,7 @@
     .back-toc{top:12px;right:16px;padding:6px 12px;font-size:12px;}
   }
   @media (max-width:700px){
-    .slide{padding:26px 22px 52px;}
+    .slide{padding:26px 22px 96px;}
     .slide-head h2{font-size:20px;}
     .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
     .toc-grid{grid-template-columns:1fr;}
@@ -477,6 +481,20 @@
   .slide::-webkit-scrollbar-track{background:transparent;}
   .slide::-webkit-scrollbar-thumb{background:#c5d0da;border-radius:3px;}
   .slide::-webkit-scrollbar-thumb:hover{background:#a0b0c0;}
+
+
+  /* ===== Location advantage slide ===== */
+  .location-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch;}
+  .location-map{background:linear-gradient(145deg,#eef4f9 0%,#f9fbfd 100%);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);min-height:390px;}
+  .location-map svg{width:100%;height:100%;display:block;}
+  .location-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .location-point{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 15px;border-left:4px solid var(--primary);}
+  .location-point strong{display:block;color:var(--primary);font-size:15px;margin-bottom:5px;}
+  .location-point span{font-size:13px;line-height:1.65;color:var(--muted);}
+  .location-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:8px;}
+  .location-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:18px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--primary);box-shadow:0 2px 8px rgba(15,59,94,.06);}
+  @media (max-width:900px){.location-layout{grid-template-columns:1fr;}.location-map{min-height:320px;}}
+  @media (max-width:700px){.location-points{grid-template-columns:1fr;}.location-map{min-height:300px;padding:8px;}}
 
 
   /* ===== Mobile H5 enhancements ===== */
@@ -504,7 +522,7 @@
     .slide{
       height:100dvh;
       min-height:100dvh;
-      padding:56px 16px calc(78px + env(safe-area-inset-bottom));
+      padding:56px 16px calc(112px + env(safe-area-inset-bottom));
       -webkit-overflow-scrolling:touch;
       overscroll-behavior:contain;
     }
@@ -528,17 +546,23 @@
     .flow-step{width:100%;min-width:0;padding:12px 10px;}
     table{font-size:12px;display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;border-radius:8px;}
     th,td{padding:8px 10px;}
-    .cover{padding:76px 22px 82px;justify-content:center;}
+    .cover{padding:76px 22px 112px;justify-content:center;}
     .cover h1{font-size:30px;line-height:1.28;letter-spacing:1px;}
     .cover .cover-tag{font-size:11px;letter-spacing:3px;}
     .cover .cover-sub{font-size:14px;line-height:1.7;letter-spacing:1px;}
     .cover .cover-meta{font-size:13px;line-height:1.8;}
-    .end-slide{padding:70px 22px 84px;}
+    .end-slide{padding:70px 22px 112px;}
     .end-slide h2{font-size:28px;letter-spacing:2px;}
     .end-slide p{font-size:14px;letter-spacing:1px;}
     .back-toc{top:max(10px,env(safe-area-inset-top));right:10px;padding:6px 10px;}
+    /* 手机端保留底部翻页习惯，但为正文预留安全区，避免遮挡最后一行内容 */
     .nav{
+      top:auto;
+      right:auto;
+      left:50%;
       bottom:calc(10px + env(safe-area-inset-bottom));
+      transform:translateX(-50%);
+      flex-direction:row;
       padding:7px 14px;
       gap:12px;
       max-width:calc(100vw - 24px);
@@ -604,94 +628,98 @@
           <div class="ds">土地资源、区位条件与综合开发价值</div>
         </div>
         <div class="toc-item" data-target="3">
+          <div class="no">01A</div><div class="tt">区位与交通优势</div>
+          <div class="ds">武汉都市圈节点 · 吴都大道城市轴 · 鄂州站便捷联动</div>
+        </div>
+        <div class="toc-item" data-target="4">
           <div class="no">02</div><div class="tt">项目基本情况</div>
           <div class="ds">两宗地指标与整体统筹思路</div>
         </div>
-        <div class="toc-item" data-target="4">
+        <div class="toc-item" data-target="5">
           <div class="no">03</div><div class="tt">项目总体定位</div>
           <div class="ds">文体旅商住融合型城市综合服务项目</div>
         </div>
-        <div class="toc-item" data-target="5">
+        <div class="toc-item" data-target="6">
           <div class="no">04</div><div class="tt">总体策划思路</div>
           <div class="ds">整体统筹、分期实施、组团开发</div>
         </div>
-        <div class="toc-item" data-target="6">
+        <div class="toc-item" data-target="7">
           <div class="no">05</div><div class="tt">总体功能构想</div>
           <div class="ds">居住·体育·文化·文旅·商业·教培健康</div>
         </div>
-        <div class="toc-item" data-target="7">
+        <div class="toc-item" data-target="8">
           <div class="no">06</div><div class="tt">空间规划构想</div>
           <div class="ds">地下·首层·二层·住宅·公共空间立体复合</div>
         </div>
-        <div class="toc-item" data-target="8">
+        <div class="toc-item" data-target="9">
           <div class="no">07</div><div class="tt">项目运营构想</div>
           <div class="ds">建设与运营同步策划、四大运营平台</div>
         </div>
-        <div class="toc-item" data-target="9">
+        <div class="toc-item" data-target="10">
           <div class="no">08</div><div class="tt">EPC+O 合作模式</div>
           <div class="ds">设计·采购·施工·运营全生命周期一体化</div>
         </div>
-        <div class="toc-item" data-target="10">
+        <div class="toc-item" data-target="11">
           <div class="no">09</div><div class="tt">EPC+O 合作范围</div>
           <div class="ds">从总体策划到长期运营的五个阶段</div>
         </div>
-        <div class="toc-item" data-target="11">
+        <div class="toc-item" data-target="12">
           <div class="no">10</div><div class="tt">EPC+O 核心问题</div>
           <div class="ds">运营前置·分期独立·首期启动·成本控制</div>
         </div>
-        <div class="toc-item" data-target="12">
+        <div class="toc-item" data-target="13">
           <div class="no">11</div><div class="tt">规划设计目标</div>
           <div class="ds">建筑空间与后期运营深度融合</div>
         </div>
-        <div class="toc-item" data-target="13">
+        <div class="toc-item" data-target="14">
           <div class="no">12</div><div class="tt">规划设计原则</div>
           <div class="ds">整体规划·规划条件优先·运营前置·分期实施</div>
         </div>
-        <div class="toc-item" data-target="14">
+        <div class="toc-item" data-target="15">
           <div class="no">13</div><div class="tt">总体规划结构</div>
           <div class="ds">两宗地整体统筹、八组团分期实施</div>
         </div>
-        <div class="toc-item" data-target="15">
+        <div class="toc-item" data-target="16">
           <div class="no">14</div><div class="tt">建筑功能要求（一）</div>
           <div class="ds">居住功能 · 体育功能</div>
         </div>
-        <div class="toc-item" data-target="16">
+        <div class="toc-item" data-target="17">
           <div class="no">15</div><div class="tt">公共文化与立体利用</div>
           <div class="ds">文化艺术融入建筑 · 地下到屋顶复合利用</div>
         </div>
-        <div class="toc-item" data-target="17">
+        <div class="toc-item" data-target="18">
           <div class="no">16</div><div class="tt">景观与交通停车</div>
           <div class="ds">景观成为产业运营的一部分 · 人流分类</div>
         </div>
-        <div class="toc-item" data-target="18">
+        <div class="toc-item" data-target="19">
           <div class="no">17</div><div class="tt">支撑系统要求</div>
           <div class="ds">教培健康·建筑形象·结构·绿色·智慧</div>
         </div>
-        <div class="toc-item" data-target="19">
+        <div class="toc-item" data-target="20">
           <div class="no">18</div><div class="tt">分期开发与首期</div>
           <div class="ds">六个相对独立 · 滚动开发</div>
         </div>
-        <div class="toc-item" data-target="20">
+        <div class="toc-item" data-target="21">
           <div class="no">19</div><div class="tt">协同设计与设计任务</div>
           <div class="ds">EPC+O 协同 · 设计单位重点工作</div>
         </div>
-        <div class="toc-item" data-target="21">
+        <div class="toc-item" data-target="22">
           <div class="no">20</div><div class="tt">本阶段设计成果</div>
           <div class="ds">基础分析·概念规划·效果·布局·指标</div>
         </div>
-        <div class="toc-item" data-target="22">
+        <div class="toc-item" data-target="23">
           <div class="no">21</div><div class="tt">商务洽谈重点</div>
           <div class="ds">技术研判·方案成本·合作界面</div>
         </div>
-        <div class="toc-item" data-target="23">
+        <div class="toc-item" data-target="24">
           <div class="no">22</div><div class="tt">下一阶段工作</div>
           <div class="ds">六步推进路径 · EPC+O 实施框架</div>
         </div>
-        <div class="toc-item" data-target="24">
+        <div class="toc-item" data-target="25">
           <div class="no">23</div><div class="tt">项目总体愿景</div>
           <div class="ds">文体旅商住融合型城市综合项目</div>
         </div>
-        <div class="toc-item" data-target="25">
+        <div class="toc-item" data-target="26">
           <div class="no">24</div><div class="tt">特别说明</div>
           <div class="ds">交流文件 · 不构成正式委托或承诺</div>
         </div>
@@ -735,8 +763,106 @@
     <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>03</div>
   </section>
 
-  <!-- ==================== 02 项目基本情况 ==================== -->
+  <!-- ==================== 01A 区位与交通优势 ==================== -->
   <section class="slide" data-index="3">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">01A / LOCATION ADVANTAGE</div>
+      <h2>区位与交通优势</h2>
+      <div class="sub">武汉都市圈重要节点 · 吴都大道城市发展轴 · 高铁 / 城际 / 航空多维交通支撑</div>
+    </div>
+    <div class="slide-body">
+      <div class="location-layout">
+        <div class="location-map">
+          <svg viewBox="0 0 760 500" role="img" aria-label="项目区位与道路关系商务示意图">
+            <defs>
+              <linearGradient id="locA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef4f9"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+              <filter id="shadowA"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f3b5e" flood-opacity="0.14"/></filter>
+            </defs>
+            <rect x="5" y="5" width="750" height="490" rx="24" fill="url(#locA)"/>
+            <text x="380" y="34" text-anchor="middle" fill="#0f3b5e" font-size="18" font-weight="800">区位与道路关系 · 商务示意</text>
+            <text x="380" y="61" text-anchor="middle" fill="#5c6b7a" font-size="12">武汉都市圈 · 鄂州城南片区 · 吴都大道北侧双地块</text>
+
+            <!-- 宏观联系 -->
+            <path d="M92 102 C195 70, 282 72, 372 104 S555 141, 665 104" fill="none" stroke="#c7d6e2" stroke-width="8" stroke-linecap="round"/>
+            <path d="M400 120 C486 124, 556 143, 628 173" fill="none" stroke="#c7d6e2" stroke-width="5" stroke-dasharray="8 8"/>
+            <circle cx="92" cy="102" r="26" fill="#0f3b5e"/><text x="92" y="108" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">武汉</text>
+            <circle cx="382" cy="116" r="30" fill="#e8a33d" filter="url(#shadowA)"/><text x="382" y="122" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">鄂州</text>
+            <circle cx="648" cy="102" r="24" fill="#2e9e8f"/><text x="648" y="108" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">黄冈</text>
+            <circle cx="648" cy="177" r="24" fill="#2e9e8f"/><text x="648" y="183" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">黄石</text>
+            <text x="382" y="155" text-anchor="middle" fill="#0f3b5e" font-size="12" font-weight="700">武鄂黄黄协同发展节点</text>
+
+            <!-- 城市道路关系；先画路，后画文字，避免遮挡 -->
+            <rect x="78" y="262" width="608" height="16" rx="8" fill="#d9e1e8"/>
+            <rect x="125" y="247" width="18" height="196" rx="9" fill="#a8bccb"/>
+            <rect x="432" y="250" width="14" height="158" rx="7" fill="#b8c8d4"/>
+            <rect x="438" y="318" width="218" height="14" rx="7" fill="#bcc9d3"/>
+            <rect x="639" y="247" width="18" height="196" rx="9" fill="#a8bccb"/>
+            <rect x="68" y="416" width="624" height="20" rx="10" fill="#d5b06b"/>
+
+            <!-- 地块 -->
+            <rect x="153" y="286" width="248" height="108" rx="18" fill="#0f3b5e" opacity="0.97" filter="url(#shadowA)"/>
+            <rect x="470" y="344" width="143" height="60" rx="14" fill="#1a5a8a" opacity="0.97" filter="url(#shadowA)"/>
+
+            <!-- 道路文字：放到道路上方，使用白色描边以保证可读 -->
+            <g font-family="Microsoft YaHei, PingFang SC, Arial" paint-order="stroke" stroke="#f7fafc" stroke-width="5" stroke-linejoin="round">
+              <text x="380" y="254" text-anchor="middle" fill="#5c6b7a" font-size="13" font-weight="700">寿昌大道</text>
+              <text x="106" y="347" transform="rotate(-90 106 347)" text-anchor="middle" fill="#5c6b7a" font-size="13" font-weight="700">滨湖西路</text>
+              <text x="458" y="332" transform="rotate(-90 458 332)" text-anchor="middle" fill="#5c6b7a" font-size="12" font-weight="700">规划路</text>
+              <text x="548" y="310" text-anchor="middle" fill="#5c6b7a" font-size="12" font-weight="700">规划道路</text>
+              <text x="678" y="347" transform="rotate(-90 678 347)" text-anchor="middle" fill="#5c6b7a" font-size="13" font-weight="700">黄龙路</text>
+              <text x="380" y="408" text-anchor="middle" fill="#8b6420" font-size="16" font-weight="800">吴都大道</text>
+            </g>
+
+            <!-- 地块标注 -->
+            <text x="277" y="326" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">G（2020）032</text>
+            <text x="277" y="353" text-anchor="middle" fill="#dbe9f4" font-size="13">吴都大道与滨湖西路东北角</text>
+            <text x="541" y="369" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">G（2020）033</text>
+            <text x="541" y="388" text-anchor="middle" fill="#dbe9f4" font-size="11.5">吴都大道北侧 · 黄龙路西侧</text>
+
+            <!-- 外部交通 -->
+            <g transform="translate(48,420)"><circle cx="0" cy="0" r="23" fill="#e8a33d" filter="url(#shadowA)"/><text x="0" y="6" text-anchor="middle" fill="#fff" font-size="18">🚄</text></g>
+            <path d="M72 416 C92 410, 108 406, 127 402" fill="none" stroke="#e8a33d" stroke-width="3" stroke-dasharray="5 5"/>
+            <text x="48" y="455" text-anchor="middle" fill="#0f3b5e" font-size="13" font-weight="800">鄂州站</text>
+            <text x="48" y="472" text-anchor="middle" fill="#5c6b7a" font-size="11">向西联系</text>
+
+            <g transform="translate(708,355)"><circle cx="0" cy="0" r="22" fill="#2e9e8f" filter="url(#shadowA)"/><text x="0" y="6" text-anchor="middle" fill="#fff" font-size="17">✈</text></g>
+            <path d="M684 355 C660 356, 640 362, 614 372" fill="none" stroke="#2e9e8f" stroke-width="3" stroke-dasharray="5 5"/>
+            <text x="708" y="393" text-anchor="middle" fill="#0f3b5e" font-size="12.5" font-weight="800">花湖机场</text>
+            <text x="708" y="410" text-anchor="middle" fill="#5c6b7a" font-size="11">外围航空门户</text>
+
+            <!-- 北箭头与脚注 -->
+            <path d="M703 230 L703 258" stroke="#5c6b7a" stroke-width="2"/><path d="M703 224 L696 236 L710 236 Z" fill="#5c6b7a"/><text x="703" y="217" text-anchor="middle" fill="#5c6b7a" font-size="11" font-weight="700">北</text>
+            <text x="380" y="462" text-anchor="middle" fill="#0f3b5e" font-size="15" font-weight="800">项目筹备地块：城南片区 · 吴都大道北侧</text>
+            <text x="26" y="487" fill="#7b8996" font-size="11">示意图用于区位表达，不作为测绘、导航或规划红线依据</text>
+          </svg>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="card" style="border-left:5px solid var(--accent);padding:16px 18px;">
+            <h3>项目区位判断</h3>
+            <p>两宗筹备地块均位于<strong>吴都大道北侧</strong>。其中 G（2020）032 宗地位于<strong>吴都大道与滨湖西路东北角</strong>，G（2020）033 宗地位于<strong>吴都大道北侧、黄龙路西侧</strong>。两宗地可作为一个整体项目进行统筹策划。</p>
+          </div>
+          <div class="location-points">
+            <div class="location-point" style="border-left-color:#e8a33d;"><strong>🚄 鄂州站便捷联动</strong><span>鄂州站位于江碧大道 / 吴都大道节点，是鄂州市核心铁路交通门户；项目同处吴都大道城市轴，具备较好的高铁、城际客流承接条件。</span></div>
+            <div class="location-point" style="border-left-color:#2e9e8f;"><strong>✈ 花湖机场辐射</strong><span>鄂州花湖国际机场位于鄂城区，是区域航空与物流枢纽，为文旅、赛事、商务及产业资源导入提供外部交通支撑。</span></div>
+            <div class="location-point" style="border-left-color:#1a5a8a;"><strong>🏙 城南片区发展轴</strong><span>公开城市规划将鄂州站—吴都大道—凤凰路—滨湖南路一带作为城南片区重要商业中心空间，项目与该城市功能轴具有较强联动。</span></div>
+            <div class="location-point" style="border-left-color:#b03a3a;"><strong>🔗 武汉都市圈节点</strong><span>鄂州位于武汉都市圈“武鄂黄黄”协同发展区域，具备承接武汉都市圈客群、文体活动及跨城消费的区位基础。</span></div>
+          </div>
+          <div class="card" style="padding:13px 15px;background:#fffaf1;border-color:#f1d6a8;">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px;">
+              <span class="location-badge">城市主轴</span><span class="location-badge">高铁城际</span><span class="location-badge">航空门户</span><span class="location-badge">都市圈客流</span>
+            </div>
+            <p class="location-note">注：本页为商务交流阶段的区位示意表达，未标注项目至车站、机场的精确驾车里程。后续如用于正式招商 / 投资材料，建议基于高德或百度地图按地块主入口重新测算“驾车距离 + 时间”，再标注具体数值。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>04</div>
+  </section>
+
+  <!-- ==================== 02 项目基本情况 ==================== -->
+  <section class="slide" data-index="4">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">02 / PROJECT OVERVIEW</div>
@@ -799,11 +925,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>04</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>05</div>
   </section>
 
   <!-- ==================== 03 项目总体定位 ==================== -->
-  <section class="slide" data-index="4">
+  <section class="slide" data-index="5">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">03 / POSITIONING</div>
@@ -853,11 +979,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>05</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>06</div>
   </section>
 
   <!-- ==================== 04 总体策划思路 ==================== -->
-  <section class="slide" data-index="5">
+  <section class="slide" data-index="6">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">04 / PLANNING APPROACH</div>
@@ -897,11 +1023,11 @@
         <div class="flow-step"><div class="step-no">5</div><div class="step-txt">建设运营一体化</div></div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>06</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>07</div>
   </section>
 
   <!-- ==================== 05 总体功能构想 ==================== -->
-  <section class="slide" data-index="6">
+  <section class="slide" data-index="7">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">05 / FUNCTIONAL SYSTEM</div>
@@ -960,11 +1086,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>07</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>08</div>
   </section>
 
   <!-- ==================== 06 空间规划初步构想 ==================== -->
-  <section class="slide" data-index="7">
+  <section class="slide" data-index="8">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">06 / SPATIAL PLANNING</div>
@@ -1009,11 +1135,11 @@
         <p>在符合规划、消防、结构和安全要求的前提下，可研究：屋顶绿化、生态体验、休闲活动、小型体育、观景、科普教育。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>08</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>09</div>
   </section>
 
   <!-- ==================== 07 项目运营总体构想 ==================== -->
-  <section class="slide" data-index="8">
+  <section class="slide" data-index="9">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">07 / OPERATION SYSTEM</div>
@@ -1061,11 +1187,11 @@
         <p>通过各平台之间<strong>相互导流</strong>，逐步形成长期运营机制。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>09</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>10</div>
   </section>
 
   <!-- ==================== 08 EPC+O 合作模式 ==================== -->
-  <section class="slide" data-index="9">
+  <section class="slide" data-index="10">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">08 / EPC+O MODEL</div>
@@ -1113,11 +1239,11 @@
         <div class="flow-step"><div class="step-no">5</div><div class="step-txt">长期运营</div></div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>10</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>11</div>
   </section>
 
   <!-- ==================== 09 EPC+O 合作范围 ==================== -->
-  <section class="slide" data-index="10">
+  <section class="slide" data-index="11">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">09 / SCOPE OF COOPERATION</div>
@@ -1148,11 +1274,11 @@
         <p>根据后续确定的合作机制，可进一步研究由专业运营主体承担或者参与：体育场馆、赛事活动、商业、文旅、文化艺术、教育培训、项目公共服务体系的长期运营。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>11</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>12</div>
   </section>
 
   <!-- ==================== 10 EPC+O 核心问题 ==================== -->
-  <section class="slide" data-index="11">
+  <section class="slide" data-index="12">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">10 / KEY ISSUES</div>
@@ -1188,11 +1314,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>12</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>13</div>
   </section>
 
   <!-- ==================== 11 规划设计总体目标 ==================== -->
-  <section class="slide" data-index="12">
+  <section class="slide" data-index="13">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">11 / PLANNING & DESIGN GOALS</div>
@@ -1219,11 +1345,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>13</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>14</div>
   </section>
 
   <!-- ==================== 12 规划设计原则 ==================== -->
-  <section class="slide" data-index="13">
+  <section class="slide" data-index="14">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">12 / DESIGN PRINCIPLES</div>
@@ -1263,11 +1389,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>14</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>15</div>
   </section>
 
   <!-- ==================== 13 总体规划结构研究 ==================== -->
-  <section class="slide" data-index="14">
+  <section class="slide" data-index="15">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">13 / SPATIAL STRUCTURE</div>
@@ -1303,11 +1429,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>15</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>16</div>
   </section>
 
   <!-- ==================== 14 建筑功能规划设计要求（一） ==================== -->
-  <section class="slide" data-index="15">
+  <section class="slide" data-index="16">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">14 / ARCHITECTURAL FUNCTION</div>
@@ -1354,11 +1480,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>16</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>17</div>
   </section>
 
   <!-- ==================== 15 公共文化艺术+立体利用 ==================== -->
-  <section class="slide" data-index="16">
+  <section class="slide" data-index="17">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">15 / CULTURE & 3D UTILIZATION</div>
@@ -1393,11 +1519,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>17</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>18</div>
   </section>
 
   <!-- ==================== 16 景观+交通停车 ==================== -->
-  <section class="slide" data-index="17">
+  <section class="slide" data-index="18">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">16 / LANDSCAPE & TRAFFIC</div>
@@ -1436,11 +1562,11 @@
         <p>商业应重点服务于项目内部人口以及体育、文旅和活动产生的外部客流。重点研究：体育用品、餐饮、生活服务、文化创意、亲子服务、休闲娱乐、健康服务、特色零售。商业布局应与“体育场馆 + 主要公共空间 + 人流节点”形成空间协同。原则上不以单纯增加商业面积为设计目标，而以提高商业运营效率为核心。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>18</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>19</div>
   </section>
 
   <!-- ==================== 17 教培健康+建筑形象+结构+绿色+智慧 ==================== -->
-  <section class="slide" data-index="18">
+  <section class="slide" data-index="19">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">17 / SUPPORTING SYSTEMS</div>
@@ -1475,11 +1601,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>19</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>20</div>
   </section>
 
   <!-- ==================== 18 分期开发+首期启动 ==================== -->
-  <section class="slide" data-index="19">
+  <section class="slide" data-index="20">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">18 / PHASED DEVELOPMENT</div>
@@ -1512,11 +1638,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>20</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>21</div>
   </section>
 
   <!-- ==================== 19 EPC+O协同设计+设计单位任务 ==================== -->
-  <section class="slide" data-index="20">
+  <section class="slide" data-index="21">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">19 / DESIGN TASKS</div>
@@ -1549,11 +1675,11 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>21</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>22</div>
   </section>
 
   <!-- ==================== 20 本阶段建议设计成果 ==================== -->
-  <section class="slide" data-index="21">
+  <section class="slide" data-index="22">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">20 / DELIVERABLES</div>
@@ -1592,11 +1718,11 @@
         <p>对各宗地及各期分别测算：用地、建筑面积、计容面积、住宅、商业、体育、公共服务、地下、停车。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>22</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>23</div>
   </section>
 
   <!-- ==================== 21 本次商务洽谈重点问题 ==================== -->
-  <section class="slide" data-index="22">
+  <section class="slide" data-index="23">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">21 / KEY DISCUSSION</div>
@@ -1633,11 +1759,11 @@
         <p>拟合作单位原则上应具备或能够整合以下能力：大型综合项目总体规划能力、高层住宅设计能力、体育场馆设计经验、商业及复合业态设计能力、地下空间设计能力、景观及公共空间设计能力、EPC工程实施经验、成本控制能力、产业策划及运营协同经验。如单一企业不能覆盖全部专业，可通过联合体、专业顾问或产业合作单位形成项目综合服务团队。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>23</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>24</div>
   </section>
 
   <!-- ==================== 22 下一阶段工作建议 ==================== -->
-  <section class="slide" data-index="23">
+  <section class="slide" data-index="24">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">22 / NEXT STEPS</div>
@@ -1688,11 +1814,11 @@
         <p>在上述内容基本明确后，再依法确定最终合作方式和具体合同体系。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>24</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>25</div>
   </section>
 
   <!-- ==================== 23 项目总体愿景 ==================== -->
-  <section class="slide" data-index="24">
+  <section class="slide" data-index="25">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">23 / VISION</div>
@@ -1724,11 +1850,11 @@
         <p>通过 EPC+O 模式研究，将<strong>“策划、设计、建设、产业、运营”</strong>从项目早期开始统筹考虑，使建筑空间真正服务于产业和运营，使项目建设价值能够转化为长期经营价值，实现项目建设、产业发展和城市服务之间的协同发展。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>25</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>26</div>
   </section>
 
   <!-- ==================== 24 特别说明 ==================== -->
-  <section class="slide" data-index="25">
+  <section class="slide" data-index="26">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
       <div class="kicker">24 / SPECIAL NOTES</div>
@@ -1763,11 +1889,11 @@
         </p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>26</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>27</div>
   </section>
 
   <!-- ==================== 结尾页 ==================== -->
-  <section class="slide end-slide" data-index="26">
+  <section class="slide end-slide" data-index="27">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <h2>文体旅商住融合服务项目</h2>
     <div class="end-line"></div>
