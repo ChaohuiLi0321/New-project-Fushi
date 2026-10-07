@@ -555,20 +555,30 @@
     .end-slide h2{font-size:28px;letter-spacing:2px;}
     .end-slide p{font-size:14px;letter-spacing:1px;}
     .back-toc{top:max(10px,env(safe-area-inset-top));right:10px;padding:6px 10px;}
-    /* 手机端保留底部翻页习惯，但为正文预留安全区，避免遮挡最后一行内容 */
-    .nav{
-      top:auto;
-      right:auto;
-      left:50%;
-      bottom:calc(10px + env(safe-area-inset-bottom));
-      transform:translateX(-50%);
-      flex-direction:row;
-      padding:7px 14px;
-      gap:12px;
-      max-width:calc(100vw - 24px);
+    /* 手机端同样改为右侧垂直翻页，避免底部按钮遮挡正文 */
+    .slide{
+      padding-right:64px;
     }
-    .nav button{width:38px;height:38px;font-size:18px;}
-    .nav .indicator{font-size:13px;}
+    .nav{
+      top:50%;
+      right:8px;
+      bottom:auto;
+      left:auto;
+      transform:translateY(-50%);
+      flex-direction:column;
+      padding:7px 5px;
+      gap:6px;
+      max-width:none;
+      border-radius:24px;
+      background:rgba(255,255,255,.92);
+    }
+    .nav button{width:34px;height:34px;font-size:17px;}
+    .nav .indicator{
+      font-size:11px;
+      min-width:36px;
+      letter-spacing:0;
+      writing-mode:horizontal-tb;
+    }
     .page-footer{display:none;}
     .mode-toggle{display:block;}
   }
@@ -624,115 +634,366 @@
     <div class="slide-body">
       <div class="toc-grid">
         <div class="toc-item" data-target="2">
-          <div class="no">01</div><div class="tt">项目策划背景</div>
-          <div class="ds">土地资源、区位条件与综合开发价值</div>
+          <div class="no">01</div><div class="tt">项目开发前提与策划导向</div>
+          <div class="ds">商住用途与70年使用年限保持不变 · 盘活存量 · 做优增量 · 提升质量</div>
         </div>
         <div class="toc-item" data-target="3">
-          <div class="no">01A</div><div class="tt">区位与交通优势</div>
-          <div class="ds">武汉都市圈节点 · 吴都大道城市轴 · 鄂州站便捷联动</div>
+          <div class="no">02</div><div class="tt">全民健身赛事与产业运营</div>
+          <div class="ds">以项目为空间杠杆 · 整合本市公共资源与自然资源 · 分期培育城市赛事品牌</div>
         </div>
         <div class="toc-item" data-target="4">
-          <div class="no">02</div><div class="tt">项目基本情况</div>
-          <div class="ds">两宗地指标与整体统筹思路</div>
+          <div class="no">03</div><div class="tt">八期八组团功能植入</div>
+          <div class="ds">一至三层植入八类文化艺术与教培展馆 · 四层以上研究多类型归家式旅居客房</div>
         </div>
         <div class="toc-item" data-target="5">
-          <div class="no">03</div><div class="tt">项目总体定位</div>
-          <div class="ds">文体旅商住融合型城市综合服务项目</div>
+          <div class="no">04</div><div class="tt">西地块六组团与立体空间组织</div>
+          <div class="ds">围合式六期六组团 · 中央赛事广场 · 二层抬板 · 内外循环步道与消防系统</div>
         </div>
         <div class="toc-item" data-target="6">
-          <div class="no">04</div><div class="tt">总体策划思路</div>
-          <div class="ds">整体统筹、分期实施、组团开发</div>
+          <div class="no">05</div><div class="tt">东地块与开放街区策略</div>
+          <div class="ds">水域文体功能 · 梨园路项目内街 · 北侧小巷街区 · 开放式营创与儿童创慧园区</div>
         </div>
         <div class="toc-item" data-target="7">
-          <div class="no">05</div><div class="tt">总体功能构想</div>
-          <div class="ds">居住·体育·文化·文旅·商业·教培健康</div>
+          <div class="no">06</div><div class="tt">百年建筑与未来空间策略</div>
+          <div class="ds">屋顶未来功能 · 低空经济服务 · 人文艺术景观 · 结构装饰一体化与长寿命设计</div>
         </div>
         <div class="toc-item" data-target="8">
-          <div class="no">06</div><div class="tt">空间规划构想</div>
-          <div class="ds">地下·首层·二层·住宅·公共空间立体复合</div>
+          <div class="no">07</div><div class="tt">项目策划背景</div>
+          <div class="ds">突破传统单一住宅开发模式，探索文体旅商住融合型城市综合服务项目</div>
         </div>
         <div class="toc-item" data-target="9">
-          <div class="no">07</div><div class="tt">项目运营构想</div>
-          <div class="ds">建设与运营同步策划、四大运营平台</div>
+          <div class="no">08</div><div class="tt">区位与交通优势</div>
+          <div class="ds">武汉都市圈重要节点 · 吴都大道城市发展轴 · 高铁 / 城际 / 航空多维交通支撑</div>
         </div>
         <div class="toc-item" data-target="10">
-          <div class="no">08</div><div class="tt">EPC+O 合作模式</div>
-          <div class="ds">设计·采购·施工·运营全生命周期一体化</div>
+          <div class="no">09</div><div class="tt">项目基本情况</div>
+          <div class="ds">两宗国有建设用地 · 整体统筹策划 · 分期实施</div>
         </div>
         <div class="toc-item" data-target="11">
-          <div class="no">09</div><div class="tt">EPC+O 合作范围</div>
-          <div class="ds">从总体策划到长期运营的五个阶段</div>
+          <div class="no">10</div><div class="tt">项目总体定位</div>
+          <div class="ds">以品质居住为基础 · 以体育运动和全民健身为核心特色 · 以文化艺术和文旅体验为内涵</div>
         </div>
         <div class="toc-item" data-target="12">
-          <div class="no">10</div><div class="tt">EPC+O 核心问题</div>
-          <div class="ds">运营前置·分期独立·首期启动·成本控制</div>
+          <div class="no">11</div><div class="tt">总体策划思路</div>
+          <div class="ds">两宗地整体统筹 · 统一策划 · 分期实施 · 组团开发 · 建设运营一体化</div>
         </div>
         <div class="toc-item" data-target="13">
-          <div class="no">11</div><div class="tt">规划设计目标</div>
-          <div class="ds">建筑空间与后期运营深度融合</div>
+          <div class="no">12</div><div class="tt">总体功能构想</div>
+          <div class="ds">以居住为基础 · 文体产业为特色 · 多业态协同运营的空间体系</div>
         </div>
         <div class="toc-item" data-target="14">
-          <div class="no">12</div><div class="tt">规划设计原则</div>
-          <div class="ds">整体规划·规划条件优先·运营前置·分期实施</div>
+          <div class="no">13</div><div class="tt">空间规划初步构想</div>
+          <div class="ds">立体复合型空间开发模式 · 地下—首层—二层—住宅—公共空间</div>
         </div>
         <div class="toc-item" data-target="15">
-          <div class="no">13</div><div class="tt">总体规划结构</div>
-          <div class="ds">两宗地整体统筹、八组团分期实施</div>
+          <div class="no">14</div><div class="tt">项目运营总体构想</div>
+          <div class="ds">建设与运营同步策划 · 四大运营平台 · 相互导流形成长期运营机制</div>
         </div>
         <div class="toc-item" data-target="16">
-          <div class="no">14</div><div class="tt">建筑功能要求（一）</div>
-          <div class="ds">居住功能 · 体育功能</div>
+          <div class="no">15</div><div class="tt">拟重点探讨 EPC+O 一体化合作模式</div>
+          <div class="ds">设计·采购·施工·运营全生命周期一体化 · 运营需求前置</div>
         </div>
         <div class="toc-item" data-target="17">
-          <div class="no">15</div><div class="tt">公共文化与立体利用</div>
-          <div class="ds">文化艺术融入建筑 · 地下到屋顶复合利用</div>
+          <div class="no">16</div><div class="tt">EPC+O 模式下拟研究的合作范围</div>
+          <div class="ds">五个阶段 · 从总体策划到长期运营</div>
         </div>
         <div class="toc-item" data-target="18">
-          <div class="no">16</div><div class="tt">景观与交通停车</div>
-          <div class="ds">景观成为产业运营的一部分 · 人流分类</div>
+          <div class="no">17</div><div class="tt">EPC+O 模式拟解决的核心问题</div>
+          <div class="ds">运营需求前置 · 分期独立运营 · 首期启动 · 全生命周期成本</div>
         </div>
         <div class="toc-item" data-target="19">
-          <div class="no">17</div><div class="tt">支撑系统要求</div>
-          <div class="ds">教培健康·建筑形象·结构·绿色·智慧</div>
+          <div class="no">18</div><div class="tt">规划设计总体目标</div>
+          <div class="ds">不以单一住宅开发为目标 · 建筑空间与后期运营深度融合</div>
         </div>
         <div class="toc-item" data-target="20">
-          <div class="no">18</div><div class="tt">分期开发与首期</div>
-          <div class="ds">六个相对独立 · 滚动开发</div>
+          <div class="no">19</div><div class="tt">规划设计原则</div>
+          <div class="ds">整体规划 · 规划条件优先 · 运营前置 · 分期实施</div>
         </div>
         <div class="toc-item" data-target="21">
-          <div class="no">19</div><div class="tt">协同设计与设计任务</div>
-          <div class="ds">EPC+O 协同 · 设计单位重点工作</div>
+          <div class="no">20</div><div class="tt">总体规划结构研究要求</div>
+          <div class="ds">两宗地整体统筹 · 八组团分期实施 · 多个功能中心协同运营</div>
         </div>
         <div class="toc-item" data-target="22">
-          <div class="no">20</div><div class="tt">本阶段设计成果</div>
-          <div class="ds">基础分析·概念规划·效果·布局·指标</div>
+          <div class="no">21</div><div class="tt">建筑功能规划设计要求（一）</div>
+          <div class="ds">居住功能 · 体育功能</div>
         </div>
         <div class="toc-item" data-target="23">
-          <div class="no">21</div><div class="tt">商务洽谈重点</div>
-          <div class="ds">技术研判·方案成本·合作界面</div>
+          <div class="no">22</div><div class="tt">公共文化艺术与建筑空间立体利用</div>
+          <div class="ds">文化艺术融入建筑 · 地下—首层—二层—屋顶复合利用</div>
         </div>
         <div class="toc-item" data-target="24">
-          <div class="no">22</div><div class="tt">下一阶段工作</div>
-          <div class="ds">六步推进路径 · EPC+O 实施框架</div>
+          <div class="no">23</div><div class="tt">景观设计与交通停车要求</div>
+          <div class="ds">景观成为产业运营的一部分 · 人流分类 · 停车分区</div>
         </div>
         <div class="toc-item" data-target="25">
-          <div class="no">23</div><div class="tt">项目总体愿景</div>
-          <div class="ds">文体旅商住融合型城市综合项目</div>
+          <div class="no">24</div><div class="tt">教培健康 · 建筑形象 · 结构 · 绿色 · 智慧</div>
+          <div class="ds">模块化可转换 · 现代文化体育生态智慧 · 绿色低碳 · 智慧管理平台</div>
         </div>
         <div class="toc-item" data-target="26">
-          <div class="no">24</div><div class="tt">特别说明</div>
-          <div class="ds">交流文件 · 不构成正式委托或承诺</div>
+          <div class="no">25</div><div class="tt">分期开发与首期启动区研究</div>
+          <div class="ds">六个相对独立 · 滚动开发 · 首期兼具经济支撑与文体旅展示</div>
+        </div>
+        <div class="toc-item" data-target="27">
+          <div class="no">26</div><div class="tt">EPC+O 协同设计与设计单位重点工作任务</div>
+          <div class="ds">设计可实现性 + 工程造价 + 建设周期 + 设备采购 + 运营使用 + 长期维护</div>
+        </div>
+        <div class="toc-item" data-target="28">
+          <div class="no">27</div><div class="tt">本阶段建议设计成果</div>
+          <div class="ds">基础条件分析 · 总体概念规划 · 空间效果 · 产业布局 · 交通体系 · 分期实…</div>
+        </div>
+        <div class="toc-item" data-target="29">
+          <div class="no">28</div><div class="tt">本次商务洽谈重点问题</div>
+          <div class="ds">与规划设计及 EPC+O 相关企业沟通，希望对方重点提出意见</div>
+        </div>
+        <div class="toc-item" data-target="30">
+          <div class="no">29</div><div class="tt">下一阶段工作建议</div>
+          <div class="ds">六步推进路径 · 从资料核定到 EPC+O 合作实施框架</div>
+        </div>
+        <div class="toc-item" data-target="31">
+          <div class="no">30</div><div class="tt">项目总体愿景</div>
+          <div class="ds">以居住为基础 · 以体育为特色 · 以文化为内涵 · 以文旅为延伸 · 以商业为服务…</div>
+        </div>
+        <div class="toc-item" data-target="32">
+          <div class="no">31</div><div class="tt">特别说明</div>
+          <div class="ds">本文件为项目筹备阶段交流文件 · 不构成正式委托或承诺</div>
         </div>
       </div>
     </div>
     <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>02</div>
   </section>
 
-  <!-- ==================== 01 项目策划背景 ==================== -->
+
+  <!-- ==================== 开篇新增：项目开发前提与策划导向 ==================== -->
   <section class="slide" data-index="2">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">01 / BACKGROUND</div>
+      <div class="kicker">01 / DEVELOPMENT PREMISE</div>
+      <h2>项目开发前提与策划导向</h2>
+      <div class="sub">商住用途与70年使用年限保持不变 · 盘活存量 · 做优增量 · 提升质量</div>
+    </div>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card" style="border-top:4px solid var(--primary);">
+          <h3>法定开发前提</h3>
+          <p>项目总体策划以现行土地出让合同及规划条件为基础，按<strong>居住兼容商业（商住）</strong>的用地功能进行研究，土地使用年限按现有合同约定<strong>70年保持不变</strong>。所有创新策划均以依法批准的规划设计方案为最终实施依据。</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--accent);">
+          <h3>城市更新导向</h3>
+          <p>按照自然资源领域<strong>“盘活存量、做优增量、提升质量”</strong>的部署要求，顺应城市发展新特点，聚焦民生需要，合理布局服务、文体、研学、教育培训、健康服务等生活性服务业设施。</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--accent2);">
+          <h3>从单一开发到复合服务</h3>
+          <p>在不改变法定土地用途和使用年限的前提下，突破单一功能配置和单层平面利用方式，研究建筑空间与公共空间的<strong>立体复合、弹性转换和长期运营</strong>。</p>
+        </div>
+      </div>
+      <div class="card" style="border-left:5px solid var(--primary);background:linear-gradient(135deg,#f0f6fc,#f8fbfd);">
+        <h3>全生命周期创新策划</h3>
+        <div class="grid-2" style="gap:10px;">
+          <p style="font-size:14px;">● 创建具有文化艺术表达和长期适应能力的<strong>百年建筑</strong>，面向未来30—50年全龄段人群的生活、工作、精神文化及情感价值需求。</p>
+          <p style="font-size:14px;">● 研究<strong>分层确权、多元投融资、分期建设、持续运营</strong>相衔接的实施机制，激活权利人自主更新与多元主体参与。</p>
+          <p style="font-size:14px;">● 建立“更新规划—设计—建设—投融资—产业导入—运营维护”的全生命周期保障体系。</p>
+          <p style="font-size:14px;">● 形成建筑空间与物理空间多业态可持续发展的创新型示范项目，具体权属、融资及实施方式依法依规专项论证。</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>03</div>
+  </section>
+
+  <!-- ==================== 开篇新增：全民健身赛事与产业运营 ==================== -->
+  <section class="slide" data-index="3">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">02 / SPORTS OPERATION</div>
+      <h2>全民健身赛事与产业运营</h2>
+      <div class="sub">以项目为空间杠杆 · 整合本市公共资源与自然资源 · 分期培育城市赛事品牌</div>
+    </div>
+    <div class="slide-body">
+      <div class="card" style="border-left:5px solid var(--accent);">
+        <h3>市域资源协同与全民参与机制</h3>
+        <p>以本项目为空间与运营杠杆，规划整合本市公共资源与自然资源，邀请组织有关单位、部门、学校、村镇、区县市及社会团体等参与由本市主导运营的<strong>有奖全民健身运动体育竞赛</strong>，形成“全民健身—赛事活动—培训教培—商业消费—文旅体验—体育产业服务”的上下游协同体系。</p>
+      </div>
+      <div class="grid-4">
+        <div class="stat-card"><div class="num">0.5—30<small>万人</small></div><div class="label">年度参赛参观引流策划区间</div></div>
+        <div class="stat-card" style="background:linear-gradient(135deg,#1e7a6e,#2e9e8f);"><div class="num">0.1—1<small>万个</small></div><div class="label">直接与间接就业岗位策划区间</div></div>
+        <div class="stat-card" style="background:linear-gradient(135deg,#b07a1e,#e8a33d);"><div class="num">8<small>期</small></div><div class="label">分期实施 · 分期运营 · 赛事创品牌</div></div>
+        <div class="stat-card" style="background:linear-gradient(135deg,#7a3d5e,#a85d83);"><div class="num">持续<small>运营</small></div><div class="label">客流、就业与财税联动</div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>运营增长路径</h3>
+          <p>通过分期建设和分期运营逐步形成赛事品牌，推动参赛、参观、培训、消费人群逐年增长，并将赛事客流导入体育培训、商业服务、文化活动、研学体验、旅居住宿等多元业态。</p>
+        </div>
+        <div class="card">
+          <h3>综合社会经济目标</h3>
+          <p>以全民参与为基础，以服务共享与经济共享为导向，形成就业带动、消费增长、产业融合和持续财税贡献的综合效应，服务共同富裕和城市公共服务品质提升。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:12px 16px;background:#fffaf1;border-color:#f1d6a8;">
+        <p style="font-size:13px;color:var(--muted);"><strong>说明：</strong>年度引流及就业岗位数据为现阶段策划目标区间，需结合分期规模、赛事频次、运营方案、市场测算及主管部门要求进一步论证。</p>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>04</div>
+  </section>
+
+  <!-- ==================== 开篇新增：八期八组团功能植入 ==================== -->
+  <section class="slide" data-index="4">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">03 / EIGHT CLUSTERS</div>
+      <h2>八期八组团功能植入</h2>
+      <div class="sub">一至三层植入八类文化艺术与教培展馆 · 四层以上研究多类型归家式旅居客房</div>
+    </div>
+    <div class="slide-body">
+      <div class="card" style="background:linear-gradient(135deg,#0f3b5e,#1a5a8a);color:#fff;border:none;">
+        <h3 style="color:#fff;">八期八组团 · 八类主题文化空间</h3>
+        <p style="color:rgba(255,255,255,.92);">各组团在一层至三层中分别植入主题文化、艺术、科技、研学与教培功能，形成“组团有主题、空间可运营、内容可更新”的公共文化服务体系。</p>
+      </div>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">影视演艺馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">图书阅览馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">美术艺术馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">未来科技馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">历史民俗文化馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">自然生态博览馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">技能教培体验馆</h3></div>
+        <div class="card" style="text-align:center;padding:15px 10px;"><h3 style="justify-content:center;font-size:14px;">世界历史名人馆</h3></div>
+      </div>
+      <div class="grid-2">
+        <div class="card" style="border-left:4px solid var(--accent);">
+          <h3>一至三层：文体文教与展馆空间</h3>
+          <p>与体育训练、赛事、商业、研学、教培和公共服务功能协同布局，强化日常开放、赛事高峰和研学活动等多场景复合使用。</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--primary);">
+          <h3>四层以上：归家起居式旅居服务</h3>
+          <p>由原“三层以上住宅”策划调整为四层以上重点研究<strong>住宅式客房、公寓式客房、酒店式客房、旅居式客房</strong>，为参演、参赛、参观及研学人群提供归家起居式服务。具体规划用途和产权性质以依法批准方案为准。</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>05</div>
+  </section>
+
+  <!-- ==================== 开篇新增：西地块六组团与立体空间 ==================== -->
+  <section class="slide" data-index="5">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">04 / WEST PARCEL</div>
+      <h2>西地块六组团与立体空间组织</h2>
+      <div class="sub">围合式六期六组团 · 中央赛事广场 · 二层抬板 · 内外循环步道与消防系统</div>
+    </div>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card" style="border-top:4px solid var(--primary);">
+          <h3>中央广场</h3>
+          <p>按<strong>露天足球场 + 大型演唱会</strong>的复合活动标准研究，并兼容羽毛球、篮球、排球、乒乓球、网球等赛事及群众活动功能。</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--accent);">
+          <h3>一层六组团</h3>
+          <p>重点形成室内羽毛球、篮球、排球、乒乓球、网球等<strong>训练、竞技、教培场馆功能区</strong>。</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--accent2);">
+          <h3>二层六组团</h3>
+          <p>形成配套<strong>文体、文教、健身与商服功能综合区</strong>，并作为抬板公共活动层的重要组成。</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>二层抬板与内外循环</h3>
+          <ul>
+            <li>六组团围合平面布置，二层形成抬板式公共空间</li>
+            <li>组织内外循环绿植人行步道与消防车行道</li>
+            <li>从东、西、北三个方向设置人行/车行出入口接入二层抬板面</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>立体连通与地下空间</h3>
+          <ul>
+            <li>一、二、三层各场馆采用通（连）廊、人行楼梯和电梯串联连通</li>
+            <li>地下室重点规划水娱、冰娱、设施设备及公共服务设施配套功能区</li>
+            <li>所有空间组织以消防、疏散、结构、人防及运营可达性为前提</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="border-left:4px solid var(--accent);">
+        <p><strong>西地块总体逻辑：</strong>“中央赛事广场 + 六组团围合 + 二层抬板公共环 + 多层连廊 + 地下文体配套”，形成可分期建设、可独立运营、最终整体联动的立体公共空间体系。</p>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>06</div>
+  </section>
+
+  <!-- ==================== 开篇新增：东地块与开放街区 ==================== -->
+  <section class="slide" data-index="6">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">05 / EAST PARCEL & OPEN BLOCK</div>
+      <h2>东地块与开放街区策略</h2>
+      <div class="sub">水域文体功能 · 梨园路项目内街 · 北侧小巷街区 · 开放式营创与儿童创慧园区</div>
+    </div>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card" style="border-top:4px solid #1a5a8a;"><h3>地下空间</h3><p>重点研究<strong>游泳赛事 + 水娱教培</strong>功能区，并统筹设备、后勤、消防、人防及公共服务设施。</p></div>
+        <div class="card" style="border-top:4px solid #2e9e8f;"><h3>一层空间</h3><p>形成<strong>水域商服功能综合区</strong>，承接赛事、教培、休闲、餐饮及相关消费服务。</p></div>
+        <div class="card" style="border-top:4px solid #e8a33d;"><h3>二层空间</h3><p>重点形成<strong>展馆功能区</strong>，并与整体八组团文化艺术与研学体系协同。</p></div>
+      </div>
+      <div class="grid-2">
+        <div class="card" style="border-left:4px solid var(--primary);">
+          <h3>梨园路作为整体项目内街</h3>
+          <p>东地块原则上<strong>不设置西地块式二层抬板消防与人行系统</strong>，将梨园路研究为东西地块之间的整体项目内街区，强化步行、商业、文化展示与慢行联系。</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--accent2);">
+          <h3>北侧开放街区融合</h3>
+          <p>将西地块北侧由东向西规划的小巷街区，与消防支队住宅区、星光小区、金谷园小区等周边生活空间进行界面融合研究，形成开放式公共活动网络。</p>
+        </div>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,#eff8f6,#f8fbfd);border-left:5px solid var(--accent2);">
+        <h3>开放式“营创园区 + 儿童创慧园区”</h3>
+        <p>通过内街、小巷、公共景观、社区界面、儿童活动、创新创业、文化研学和生活服务等空间的连续组织，形成项目与周边社区共享、可全天候使用、可持续运营的开放式街区体系。</p>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>07</div>
+  </section>
+
+  <!-- ==================== 开篇新增：百年建筑与未来空间 ==================== -->
+  <section class="slide" data-index="7">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">06 / CENTURY BUILDING</div>
+      <h2>百年建筑与未来空间策略</h2>
+      <div class="sub">屋顶未来功能 · 低空经济服务 · 人文艺术景观 · 结构装饰一体化与长寿命设计</div>
+    </div>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card" style="border-left:4px solid var(--accent2);">
+          <h3>屋顶与未来低空经济</h3>
+          <p>东西地块各组团屋顶根据不同组团功能，研究智能智慧系统、未来低空经济服务、屋顶绿化、观景、科普、休闲和小型体育等复合功能，并预留未来技术升级接口。</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--primary);">
+          <h3>整体形象与组团特色</h3>
+          <p>项目外观立面在<strong>整体文化艺术语言保持一致</strong>的基础上，允许各组团结合主题展馆和产业内容形成差异化建筑景观，实现“总体统一、组团各具特色”。</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>结构与艺术装饰同寿命</h3>
+          <p>研究将建筑内部顶棚藻井面、梁柱面与<strong>高标号超强清水混凝土浮雕装饰</strong>进行结构与装饰一体化设计和浇筑，减少后期附着式装饰层的维护与更新成本。</p>
+        </div>
+        <div class="card">
+          <h3>楼地面一体化耐久设计</h3>
+          <p>地面研究采用<strong>彩色水磨石随楼地面一体浇筑</strong>等长寿命做法，使主要内外装饰面尽可能与主体建筑形成耐久、可维护、可传承的材料体系。</p>
+        </div>
+      </div>
+      <div class="card" style="border-left:5px solid var(--accent);background:#fffaf1;">
+        <h3>百年建筑目标</h3>
+        <p>通过“建筑穿衣戴帽 + 公共艺术 + 结构材料 + 文化主题 + 长期运营”的一体化设计，形成具有<strong>人文艺术传承价值、文旅展示价值和长期使用价值</strong>的百年建筑体系。具体材料、结构工艺、耐久年限及低空经济功能应通过专项技术论证后实施。</p>
+      </div>
+    </div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>08</div>
+  </section>
+
+  <!-- ==================== 01 项目策划背景 ==================== -->
+  <section class="slide" data-index="8">
+    <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
+    <div class="slide-head">
+      <div class="kicker">07 / BACKGROUND</div>
       <h2>项目策划背景</h2>
       <div class="sub">突破传统单一住宅开发模式，探索文体旅商住融合型城市综合服务项目</div>
     </div>
@@ -760,14 +1021,14 @@
         <p>项目处于总体策划和前期方案研究阶段。本方案主要用于与具备<span class="tag tag-blue">规划设计</span><span class="tag tag-blue">工程建设</span><span class="tag tag-blue">产业资源导入</span><span class="tag tag-blue">项目运营能力</span>的专业企业进行前期沟通交流，共同研究项目在规划、设计、建设、投资控制、产业导入及后续运营等方面的整体实施路径。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>03</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>09</div>
   </section>
 
   <!-- ==================== 01A 区位与交通优势 ==================== -->
-  <section class="slide" data-index="3">
+  <section class="slide" data-index="9">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">01A / LOCATION ADVANTAGE</div>
+      <div class="kicker">08 / LOCATION ADVANTAGE</div>
       <h2>区位与交通优势</h2>
       <div class="sub">武汉都市圈重要节点 · 吴都大道城市发展轴 · 高铁 / 城际 / 航空多维交通支撑</div>
     </div>
@@ -877,14 +1138,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>04</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>10</div>
   </section>
 
   <!-- ==================== 02 项目基本情况 ==================== -->
-  <section class="slide" data-index="4">
+  <section class="slide" data-index="10">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">02 / PROJECT OVERVIEW</div>
+      <div class="kicker">09 / PROJECT OVERVIEW</div>
       <h2>项目基本情况</h2>
       <div class="sub">两宗国有建设用地 · 整体统筹策划 · 分期实施</div>
     </div>
@@ -944,14 +1205,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>05</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>11</div>
   </section>
 
   <!-- ==================== 03 项目总体定位 ==================== -->
-  <section class="slide" data-index="5">
+  <section class="slide" data-index="11">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">03 / POSITIONING</div>
+      <div class="kicker">10 / POSITIONING</div>
       <h2>项目总体定位</h2>
       <div class="sub">以品质居住为基础 · 以体育运动和全民健身为核心特色 · 以文化艺术和文旅体验为内涵</div>
     </div>
@@ -959,7 +1220,7 @@
       <div class="card" style="background:linear-gradient(135deg,#f0f6fc,#e8f0f8);border-left:5px solid var(--primary);">
         <h3>总体定位</h3>
         <p style="font-size:17px;line-height:1.9;">
-          以<strong>品质居住</strong>为基础，以<strong>体育运动和全民健身</strong>为核心特色，以<strong>文化艺术和文旅体验</strong>为项目内涵，以<strong>商业服务、教育培训、健康服务及智慧科技</strong>为多元支撑，建设具有长期运营能力的<strong>文体旅商住融合型城市综合服务项目</strong>。
+          以<strong>商住开发条件</strong>为基础，以<strong>全民健身、体育赛事和文体产业运营</strong>为核心引擎，以<strong>文化艺术、研学教育和文旅体验</strong>为项目内涵，以<strong>旅居服务、商业服务、健康服务及智慧科技</strong>为多元支撑，建设具有长期运营能力的<strong>文体旅商住融合型城市综合服务项目</strong>。
         </p>
       </div>
       <div class="grid-2">
@@ -998,14 +1259,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>06</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>12</div>
   </section>
 
   <!-- ==================== 04 总体策划思路 ==================== -->
-  <section class="slide" data-index="6">
+  <section class="slide" data-index="12">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">04 / PLANNING APPROACH</div>
+      <div class="kicker">11 / PLANNING APPROACH</div>
       <h2>总体策划思路</h2>
       <div class="sub">两宗地整体统筹 · 统一策划 · 分期实施 · 组团开发 · 建设运营一体化</div>
     </div>
@@ -1042,14 +1303,14 @@
         <div class="flow-step"><div class="step-no">5</div><div class="step-txt">建设运营一体化</div></div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>07</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>13</div>
   </section>
 
   <!-- ==================== 05 总体功能构想 ==================== -->
-  <section class="slide" data-index="7">
+  <section class="slide" data-index="13">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">05 / FUNCTIONAL SYSTEM</div>
+      <div class="kicker">12 / FUNCTIONAL SYSTEM</div>
       <h2>总体功能构想</h2>
       <div class="sub">以居住为基础 · 文体产业为特色 · 多业态协同运营的空间体系</div>
     </div>
@@ -1058,10 +1319,10 @@
         <div class="card" style="border-top:4px solid #1a5a8a;">
           <h3>（一）品质居住及旅居服务</h3>
           <ul>
-            <li>住宅仍作为项目重要基础功能</li>
-            <li>研究将传统住宅产品与旅居式、酒店式、智慧化生活服务相结合</li>
-            <li>探索“住宅产品+长期生活服务+体育文化配套+旅居体验”的产品体系</li>
-            <li>“旅居”主要是运营和服务理念，不预先改变住宅依法批准的规划和产权性质</li>
+            <li>居住兼容商业的法定用地属性和70年土地使用年限保持不变</li>
+            <li>四层以上重点研究住宅式客房、公寓式客房、酒店式客房、旅居式客房等归家起居式服务空间</li>
+            <li>形成“旅居客房+长期生活服务+体育赛事+文化研学+商业配套”的产品体系</li>
+            <li>具体规划用途、产权性质和经营方式以依法批准方案及登记文件为准</li>
           </ul>
         </div>
         <div class="card" style="border-top:4px solid #e8a33d;">
@@ -1105,14 +1366,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>08</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>14</div>
   </section>
 
   <!-- ==================== 06 空间规划初步构想 ==================== -->
-  <section class="slide" data-index="8">
+  <section class="slide" data-index="14">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">06 / SPATIAL PLANNING</div>
+      <div class="kicker">13 / SPATIAL PLANNING</div>
       <h2>空间规划初步构想</h2>
       <div class="sub">立体复合型空间开发模式 · 地下—首层—二层—住宅—公共空间</div>
     </div>
@@ -1127,41 +1388,42 @@
           </ul>
         </div>
         <div class="card" style="border-left:4px solid #e8a33d;">
-          <h3>（二）首层及二层</h3>
+          <h3>（二）首层、二层及三层</h3>
           <ul>
-            <li>重点研究体育场馆、体育培训、商业服务、公共活动及文化娱乐等复合空间</li>
-            <li>通过较大尺度公共空间和灵活使用方式，为日常训练、赛事活动及不同经营项目预留条件</li>
-            <li>原策划将一、二层定位为文体文娱及商服空间</li>
+            <li>一至三层重点承载体育场馆、八类主题展馆、体育培训、研学教培、商业服务及公共文化活动</li>
+            <li>西地块二层重点研究抬板式公共空间，形成内外循环步道、消防车行及组团连通体系</li>
+            <li>不同场馆通过连廊、人行楼梯和电梯串联，为日常训练、赛事、展览和大型活动提供弹性空间</li>
           </ul>
         </div>
         <div class="card" style="border-left:4px solid #1a5a8a;">
-          <h3>（三）三层以上空间</h3>
+          <h3>（三）四层以上旅居客房空间</h3>
           <ul>
-            <li>原则上以居住功能为主体</li>
-            <li>结合智慧住宅、品质生活及旅居式服务进行产品设计研究</li>
+            <li>重点研究住宅式客房、公寓式客房、酒店式客房、旅居式客房等多类型归家起居空间</li>
+            <li>服务参演、参赛、参观、研学及中短期旅居人群，并与智慧生活、物业服务和文体配套联动</li>
           </ul>
         </div>
         <div class="card" style="border-left:4px solid #2e9e8f;">
           <h3>（四）公共空间</h3>
           <ul>
             <li>重点研究：中央活动空间、运动空间、儿童活动空间、文化艺术街巷、公共景观、组团公共活动空间、公共步行系统</li>
+            <li>将梨园路作为整体项目内街进行研究，并与西地块北侧小巷及周边社区界面衔接，探索开放式营创园区与儿童创慧园区</li>
             <li>不同组团形成不同建筑景观和文体文化主题</li>
           </ul>
         </div>
       </div>
       <div class="card" style="border-left:4px solid var(--accent);">
-        <h3>（五）屋顶空间 · 补充研究</h3>
-        <p>在符合规划、消防、结构和安全要求的前提下，可研究：屋顶绿化、生态体验、休闲活动、小型体育、观景、科普教育。</p>
+        <h3>（五）屋顶空间 · 智慧与未来功能</h3>
+        <p>在符合规划、消防、结构和安全要求的前提下，研究屋顶绿化、生态体验、休闲活动、小型体育、观景、科普教育，并结合各组团功能预留智能智慧与未来低空经济服务的技术条件。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>09</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>15</div>
   </section>
 
   <!-- ==================== 07 项目运营总体构想 ==================== -->
-  <section class="slide" data-index="9">
+  <section class="slide" data-index="15">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">07 / OPERATION SYSTEM</div>
+      <div class="kicker">14 / OPERATION SYSTEM</div>
       <h2>项目运营总体构想</h2>
       <div class="sub">建设与运营同步策划 · 四大运营平台 · 相互导流形成长期运营机制</div>
     </div>
@@ -1203,17 +1465,17 @@
         </div>
       </div>
       <div class="card" style="border-left:4px solid var(--accent);">
-        <p>通过各平台之间<strong>相互导流</strong>，逐步形成长期运营机制。</p>
+        <p>通过各平台之间<strong>相互导流</strong>，逐步形成长期运营机制；同时以全民健身赛事为抓手，协同本市有关单位、学校、村镇、社会团体及公共资源，形成分期赛事、培训、研学、消费和文旅活动的持续客流。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>10</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>16</div>
   </section>
 
   <!-- ==================== 08 EPC+O 合作模式 ==================== -->
-  <section class="slide" data-index="10">
+  <section class="slide" data-index="16">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">08 / EPC+O MODEL</div>
+      <div class="kicker">15 / EPC+O MODEL</div>
       <h2>拟重点探讨 EPC+O 一体化合作模式</h2>
       <div class="sub">设计·采购·施工·运营全生命周期一体化 · 运营需求前置</div>
     </div>
@@ -1258,14 +1520,14 @@
         <div class="flow-step"><div class="step-no">5</div><div class="step-txt">长期运营</div></div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>11</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>17</div>
   </section>
 
   <!-- ==================== 09 EPC+O 合作范围 ==================== -->
-  <section class="slide" data-index="11">
+  <section class="slide" data-index="17">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">09 / SCOPE OF COOPERATION</div>
+      <div class="kicker">16 / SCOPE OF COOPERATION</div>
       <h2>EPC+O 模式下拟研究的合作范围</h2>
       <div class="sub">五个阶段 · 从总体策划到长期运营</div>
     </div>
@@ -1293,14 +1555,14 @@
         <p>根据后续确定的合作机制，可进一步研究由专业运营主体承担或者参与：体育场馆、赛事活动、商业、文旅、文化艺术、教育培训、项目公共服务体系的长期运营。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>12</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>18</div>
   </section>
 
   <!-- ==================== 10 EPC+O 核心问题 ==================== -->
-  <section class="slide" data-index="12">
+  <section class="slide" data-index="18">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">10 / KEY ISSUES</div>
+      <div class="kicker">17 / KEY ISSUES</div>
       <h2>EPC+O 模式拟解决的核心问题</h2>
       <div class="sub">运营需求前置 · 分期独立运营 · 首期启动 · 全生命周期成本</div>
     </div>
@@ -1333,14 +1595,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>13</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>19</div>
   </section>
 
   <!-- ==================== 11 规划设计总体目标 ==================== -->
-  <section class="slide" data-index="13">
+  <section class="slide" data-index="19">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">11 / PLANNING & DESIGN GOALS</div>
+      <div class="kicker">18 / PLANNING & DESIGN GOALS</div>
       <h2>规划设计总体目标</h2>
       <div class="sub">不以单一住宅开发为目标 · 建筑空间与后期运营深度融合</div>
     </div>
@@ -1364,14 +1626,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>14</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>20</div>
   </section>
 
   <!-- ==================== 12 规划设计原则 ==================== -->
-  <section class="slide" data-index="14">
+  <section class="slide" data-index="20">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">12 / DESIGN PRINCIPLES</div>
+      <div class="kicker">19 / DESIGN PRINCIPLES</div>
       <h2>规划设计原则</h2>
       <div class="sub">整体规划 · 规划条件优先 · 运营前置 · 分期实施</div>
     </div>
@@ -1391,7 +1653,7 @@
         </div>
         <div class="card" style="border-left:4px solid #b03a3a;">
           <h3>（四）分期实施原则</h3>
-          <p>项目总体拟采取：“统一规划、分期建设、分期报建、分期验收、成熟一期、运营一期。”原项目策划提出整体按照8期8组团进行研究，并考虑大地块6个组团、小地块2个组团。每一期原则上具有相对独立的施工、消防、交通、配套、验收和运营条件。</p>
+          <p>项目总体拟采取：“统一规划、分期建设、分期报建、分期验收、成熟一期、运营一期。”整体按照<strong>8期8组团</strong>研究，其中西地块6个围合式组团、东地块2个组团。每一期原则上具有相对独立的施工、消防、交通、配套、验收和运营条件，并通过分期赛事和文化活动逐步培育项目品牌。</p>
         </div>
       </div>
       <div class="card" style="border-left:4px solid var(--accent);">
@@ -1408,14 +1670,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>15</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>21</div>
   </section>
 
   <!-- ==================== 13 总体规划结构研究 ==================== -->
-  <section class="slide" data-index="15">
+  <section class="slide" data-index="21">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">13 / SPATIAL STRUCTURE</div>
+      <div class="kicker">20 / SPATIAL STRUCTURE</div>
       <h2>总体规划结构研究要求</h2>
       <div class="sub">两宗地整体统筹 · 八组团分期实施 · 多个功能中心协同运营</div>
     </div>
@@ -1448,14 +1710,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>16</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>22</div>
   </section>
 
   <!-- ==================== 14 建筑功能规划设计要求（一） ==================== -->
-  <section class="slide" data-index="16">
+  <section class="slide" data-index="22">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">14 / ARCHITECTURAL FUNCTION</div>
+      <div class="kicker">21 / ARCHITECTURAL FUNCTION</div>
       <h2>建筑功能规划设计要求（一）</h2>
       <div class="sub">居住功能 · 体育功能</div>
     </div>
@@ -1499,14 +1761,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>17</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>23</div>
   </section>
 
   <!-- ==================== 15 公共文化艺术+立体利用 ==================== -->
-  <section class="slide" data-index="17">
+  <section class="slide" data-index="23">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">15 / CULTURE & 3D UTILIZATION</div>
+      <div class="kicker">22 / CULTURE & 3D UTILIZATION</div>
       <h2>公共文化艺术与建筑空间立体利用</h2>
       <div class="sub">文化艺术融入建筑 · 地下—首层—二层—屋顶复合利用</div>
     </div>
@@ -1538,14 +1800,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>18</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>24</div>
   </section>
 
   <!-- ==================== 16 景观+交通停车 ==================== -->
-  <section class="slide" data-index="18">
+  <section class="slide" data-index="24">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">16 / LANDSCAPE & TRAFFIC</div>
+      <div class="kicker">23 / LANDSCAPE & TRAFFIC</div>
       <h2>景观设计与交通停车要求</h2>
       <div class="sub">景观成为产业运营的一部分 · 人流分类 · 停车分区</div>
     </div>
@@ -1581,14 +1843,14 @@
         <p>商业应重点服务于项目内部人口以及体育、文旅和活动产生的外部客流。重点研究：体育用品、餐饮、生活服务、文化创意、亲子服务、休闲娱乐、健康服务、特色零售。商业布局应与“体育场馆 + 主要公共空间 + 人流节点”形成空间协同。原则上不以单纯增加商业面积为设计目标，而以提高商业运营效率为核心。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>19</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>25</div>
   </section>
 
   <!-- ==================== 17 教培健康+建筑形象+结构+绿色+智慧 ==================== -->
-  <section class="slide" data-index="19">
+  <section class="slide" data-index="25">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">17 / SUPPORTING SYSTEMS</div>
+      <div class="kicker">24 / SUPPORTING SYSTEMS</div>
       <h2>教培健康 · 建筑形象 · 结构 · 绿色 · 智慧</h2>
       <div class="sub">模块化可转换 · 现代文化体育生态智慧 · 绿色低碳 · 智慧管理平台</div>
     </div>
@@ -1600,11 +1862,11 @@
         </div>
         <div class="card" style="border-top:4px solid #1a5a8a;">
           <h3>建筑形象设计要求</h3>
-          <p>整体建筑形象应体现：<strong>现代、文化、体育、生态、智慧、长期耐久。</strong>不同组团可结合不同文化主题形成差异化建筑形象，但总体建筑语言应统一。避免单纯追求复杂造型，重点考虑：可施工、可维护、可复制、成本可控、长期不过时。</p>
+          <p>整体建筑形象应体现：<strong>现代、文化、体育、生态、智慧、长期耐久。</strong>总体文化艺术语言保持一致，不同组团可结合八类主题展馆和产业内容形成差异化建筑景观，形成“整体统一、组团各具特色”。同步研究建筑穿衣戴帽、人文艺术景观与长期维护的一体化策略。</p>
         </div>
         <div class="card" style="border-top:4px solid #b07a1e;">
           <h3>建筑结构与工程技术要求</h3>
-          <p>结构体系应根据建筑高度、体育空间跨度、地下空间、施工周期、工程成本、后期改造等因素合理选择。针对体育场馆、大跨度公共空间，应专项研究结构经济性。不建议在概念阶段预先限定全部采用某一种高成本材料或结构形式。</p>
+          <p>结构体系应根据建筑高度、体育空间跨度、地下空间、施工周期、工程成本、后期改造等因素合理选择。针对体育场馆、大跨度公共空间，应专项研究结构经济性；同时研究高标号超强清水混凝土浮雕、顶棚藻井、梁柱艺术面与主体结构一体化设计，以及彩色水磨石随楼地面一体浇筑等长寿命材料工艺。</p>
         </div>
         <div class="card" style="border-top:4px solid #2e9e8f;">
           <h3>绿色低碳设计要求</h3>
@@ -1620,14 +1882,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>20</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>26</div>
   </section>
 
   <!-- ==================== 18 分期开发+首期启动 ==================== -->
-  <section class="slide" data-index="20">
+  <section class="slide" data-index="26">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">18 / PHASED DEVELOPMENT</div>
+      <div class="kicker">25 / PHASED DEVELOPMENT</div>
       <h2>分期开发与首期启动区研究</h2>
       <div class="sub">六个相对独立 · 滚动开发 · 首期兼具经济支撑与文体旅展示</div>
     </div>
@@ -1657,14 +1919,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>21</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>27</div>
   </section>
 
   <!-- ==================== 19 EPC+O协同设计+设计单位任务 ==================== -->
-  <section class="slide" data-index="21">
+  <section class="slide" data-index="27">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">19 / DESIGN TASKS</div>
+      <div class="kicker">26 / DESIGN TASKS</div>
       <h2>EPC+O 协同设计与设计单位重点工作任务</h2>
       <div class="sub">设计可实现性 + 工程造价 + 建设周期 + 设备采购 + 运营使用 + 长期维护</div>
     </div>
@@ -1694,14 +1956,14 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>22</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>28</div>
   </section>
 
   <!-- ==================== 20 本阶段建议设计成果 ==================== -->
-  <section class="slide" data-index="22">
+  <section class="slide" data-index="28">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">20 / DELIVERABLES</div>
+      <div class="kicker">27 / DELIVERABLES</div>
       <h2>本阶段建议设计成果</h2>
       <div class="sub">基础条件分析 · 总体概念规划 · 空间效果 · 产业布局 · 交通体系 · 分期实施 · 技术经济指标</div>
     </div>
@@ -1737,14 +1999,14 @@
         <p>对各宗地及各期分别测算：用地、建筑面积、计容面积、住宅、商业、体育、公共服务、地下、停车。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>23</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>29</div>
   </section>
 
   <!-- ==================== 21 本次商务洽谈重点问题 ==================== -->
-  <section class="slide" data-index="23">
+  <section class="slide" data-index="29">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">21 / KEY DISCUSSION</div>
+      <div class="kicker">28 / KEY DISCUSSION</div>
       <h2>本次商务洽谈重点问题</h2>
       <div class="sub">与规划设计及 EPC+O 相关企业沟通，希望对方重点提出意见</div>
     </div>
@@ -1778,14 +2040,14 @@
         <p>拟合作单位原则上应具备或能够整合以下能力：大型综合项目总体规划能力、高层住宅设计能力、体育场馆设计经验、商业及复合业态设计能力、地下空间设计能力、景观及公共空间设计能力、EPC工程实施经验、成本控制能力、产业策划及运营协同经验。如单一企业不能覆盖全部专业，可通过联合体、专业顾问或产业合作单位形成项目综合服务团队。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>24</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>30</div>
   </section>
 
   <!-- ==================== 22 下一阶段工作建议 ==================== -->
-  <section class="slide" data-index="24">
+  <section class="slide" data-index="30">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">22 / NEXT STEPS</div>
+      <div class="kicker">29 / NEXT STEPS</div>
       <h2>下一阶段工作建议</h2>
       <div class="sub">六步推进路径 · 从资料核定到 EPC+O 合作实施框架</div>
     </div>
@@ -1833,14 +2095,14 @@
         <p>在上述内容基本明确后，再依法确定最终合作方式和具体合同体系。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>25</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>31</div>
   </section>
 
   <!-- ==================== 23 项目总体愿景 ==================== -->
-  <section class="slide" data-index="25">
+  <section class="slide" data-index="31">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">23 / VISION</div>
+      <div class="kicker">30 / VISION</div>
       <h2>项目总体愿景</h2>
       <div class="sub">以居住为基础 · 以体育为特色 · 以文化为内涵 · 以文旅为延伸 · 以商业为服务 · 以教育健康为支撑 · 以智慧科技为工具</div>
     </div>
@@ -1869,14 +2131,14 @@
         <p>通过 EPC+O 模式研究，将<strong>“策划、设计、建设、产业、运营”</strong>从项目早期开始统筹考虑，使建筑空间真正服务于产业和运营，使项目建设价值能够转化为长期经营价值，实现项目建设、产业发展和城市服务之间的协同发展。</p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>26</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>32</div>
   </section>
 
   <!-- ==================== 24 特别说明 ==================== -->
-  <section class="slide" data-index="26">
+  <section class="slide" data-index="32">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <div class="slide-head">
-      <div class="kicker">24 / SPECIAL NOTES</div>
+      <div class="kicker">31 / SPECIAL NOTES</div>
       <h2>特别说明</h2>
       <div class="sub">本文件为项目筹备阶段交流文件 · 不构成正式委托或承诺</div>
     </div>
@@ -1893,6 +2155,7 @@
         <div class="card">
           <h3>法律效力</h3>
           <p>本文件<strong>不构成</strong>对任何合作单位的正式设计委托、工程发包、投资承诺、招标条件或运营授权。</p>
+          <p style="margin-top:8px;font-size:13px;color:var(--muted);">文件中涉及年度引流、就业岗位、赛事规模、投融资、分层确权、低空经济等内容，均为现阶段策划研究方向或目标区间，需结合专项论证、主管部门审批及后续实施方案最终确定。</p>
         </div>
       </div>
       <div class="card" style="border-left:4px solid var(--accent2);">
@@ -1908,11 +2171,11 @@
         </p>
       </div>
     </div>
-    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>27</div>
+    <div class="page-footer"><span class="brand">文体旅商住融合服务项目</span>33</div>
   </section>
 
   <!-- ==================== 结尾页 ==================== -->
-  <section class="slide end-slide" data-index="27">
+  <section class="slide end-slide" data-index="33">
     <button class="back-toc" onclick="goTo(1)"><span class="icon">☰</span> 返回目录</button>
     <h2>文体旅商住融合服务项目</h2>
     <div class="end-line"></div>
@@ -1926,7 +2189,7 @@
 <!-- ==================== 导航 ==================== -->
 <div class="nav">
   <button id="prevBtn" disabled>‹</button>
-  <span class="indicator" id="indicator">1 / 27</span>
+  <span class="indicator" id="indicator">1 / 34</span>
   <button id="nextBtn">›</button>
 </div>
 
